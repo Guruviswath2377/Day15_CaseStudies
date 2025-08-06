@@ -1,1 +1,35 @@
-
+🟨 POST → http://localhost:8081/products
+{
+  "id": "P101",
+  "name": "Laptop",
+  "price": 1200,
+  "stock": 10
+}
+🟩 GET → http://localhost:8081/products
+🟩 GET → http://localhost:8081/products/P101
+🟨 POST → http://localhost:8082/orders
+{
+  "productId": "P101",
+  "quantity": 2,
+  "paymentMethod": "Credit Card"
+}
+🟩 GET → http://localhost:8082/orders/{orderId}
+{
+  "orderId": "O5001",
+  "amount": 2400,
+  "paymentMethod": "Credit Card"
+}
+🟨 PUT → http://localhost:8081/products/P101/reduceStock?qty=2
+{
+  "id": "P101",
+  "name": "Laptop",
+  "price": 1200,
+  "stock": 8
+}
+{
+  "id": "O5001",
+  "productId": "P101",
+  "quantity": 2,
+  "totalAmount": 2400,
+  "status": "CONFIRMED"
+}
